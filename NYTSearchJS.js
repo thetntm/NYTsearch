@@ -13,7 +13,16 @@ var resultsDiv_JQ = $("#results")
 //Event Functions
 function searchButtonClicked(event)
 {
-    
+    const query = searchTerm_JQ.val();
+    const queryURL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + query + '&api-key=7pKBOYLgmdVv44wOY7x81sNfB88FjFjW'
+    let requestPromise = $.ajax({
+        url: queryURL,
+        method: "GET",
+        success: function(response) 
+        {
+            console.log(response);
+        }
+      });
 }
 
 //Event assignment
